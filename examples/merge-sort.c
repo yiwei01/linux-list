@@ -47,11 +47,11 @@ static void list_mergesort(struct list_head *head)
     list_for_each_entry_safe (item, is, head, list) {
         if (add_to_left) {
             list_move_tail(&item->list, &list_left);
-            add_to_left = 0;
         } else {
             list_move_tail(&item->list, &list_right);
-            add_to_left = 1;
         }
+
+        add_to_left = !add_to_left;
     }
 
     list_mergesort(&list_left);
