@@ -38,7 +38,6 @@ static void list_mergesort(struct list_head *head)
         return;
 
     struct list_head list_left, list_right;
-    struct listitem *item = NULL, *is = NULL;
 
     INIT_LIST_HEAD(&list_left);
     INIT_LIST_HEAD(&list_right);
