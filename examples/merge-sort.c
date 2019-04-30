@@ -44,13 +44,12 @@ static void list_mergesort(struct list_head *head)
     INIT_LIST_HEAD(&list_right);
 
     short add_to_left = 1;
-    list_for_each_entry_safe (item, is, head, list) {
+    while (!list_empty(head)) {
         if (add_to_left) {
-            list_move_tail(&item->list, &list_left);
+            list_move_tail(head->next, &list_left);
         } else {
-            list_move_tail(&item->list, &list_right);
+            list_move(head->prev, &list_right);
         }
-
         add_to_left = !add_to_left;
     }
 
